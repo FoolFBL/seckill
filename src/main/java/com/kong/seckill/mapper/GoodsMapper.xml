@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kong.seckill.mapper.GoodsMapper">
+
+
+
+    <select id="selectGoodsVo" resultType="com.kong.seckill.vo.GoodsVo">
+        select
+            t.id as id,t.goods_name as goodsName,t.goods_title as goodsTitle,t.goods_img as goodsImg,t.goods_detail as goodsDetail,t.goods_price as goodsPrice,t.goods_stock as goodsStock,
+            s.seckill_price as seckillPrice,s.stock_count as stockCount,s.start_date as startTime,s.end_date as endTime
+        from seckill.t_goods as t ,seckill.t_seckill_goods as s
+        where t.id=s.goods_id;
+    </select>
+
+    <select id="selectGoodsVoById" resultType="com.kong.seckill.vo.GoodsVo">
+        select
+            t.id as id,t.goods_name as goodsName,t.goods_title as goodsTitle,t.goods_img as goodsImg,t.goods_detail as goodsDetail,t.goods_price as goodsPrice,t.goods_stock as goodsStock,
+            s.seckill_price as seckillPrice,s.stock_count as stockCount,s.start_date as startTime,s.end_date as endTime
+        from seckill.t_goods as t ,seckill.t_seckill_goods as s
+        where t.id=s.goods_id and goods_id=#{goodsId};
+    </select>
+
+    <update id="decrementGoods">
+        update seckill.t_goods
+            set  goods_stock=goods_stock-1
+        where id=#{goodsId};
+    </update>
+
+
+</mapper>

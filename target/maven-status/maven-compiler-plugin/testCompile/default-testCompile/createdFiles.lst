@@ -1,0 +1,7 @@
+com\kong\seckill\MapperTests\TestGoodsMapper.class
+com\kong\seckill\MapperTests\TestSeckillGoodsMapper.class
+com\kong\seckill\MapperTests\TestUserMapper.class
+com\kong\seckill\MapperTests\TestHttpClient.class
+com\kong\seckill\MapperTests\TestOrderMapper.class
+com\kong\seckill\MapperTests\TestSeckillOrderMapper.class
+com\kong\seckill\SeckillDemoApplicationTests.class

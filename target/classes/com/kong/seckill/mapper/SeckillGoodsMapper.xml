@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kong.seckill.mapper.SeckillGoodsMapper">
+
+
+    <select id="selectGoodsByUserId" resultType="com.kong.seckill.vo.SeckillGoodsVo">
+        select stock_count as stockCount, goods_id as goodsId, end_date as endDate, start_date as startDate, id, seckill_price as seckillPrice
+        from seckill.t_seckill_goods
+        where goods_id=#{goodsId};
+    </select>
+    <update id="decreGoods">
+        update seckill.t_seckill_goods
+            set stock_count = stock_count-1
+        where goods_id=#{goodsId};
+    </update>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, goods_id, seckill_price, stock_count, start_date, end_date
+    </sql>
+
+</mapper>

@@ -1,0 +1,45 @@
+spring:
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+    servlet:
+      content-type: text/html
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seckill?userUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: hsp
+    hikari:
+      pool-name: DateHikariCP
+      #最小空闲连接
+      minimum-idle: 5
+      #默认空闲连接最大存活时间 30分钟
+      idle-timeout: 1800000
+      maximum-pool-size: 1000
+      #从连接池返回的连接自动提交
+      auto-commit: true
+      max-lifetime: 1800000
+      #连接超时时间
+      connection-timeout: 30000
+  redis:
+    host: 182.92.71.235
+    port: 6379
+    database: 11
+    password: hsp
+    connect-timeout: 10000ms
+    lettuce:
+      pool:
+        #最大连接数
+        max-active: 8
+        max-wait: 10000ms
+        max-idle: 200
+mybatis:
+  #配置Mapper.xml存放位置
+  mapper-locations: classpath*./mapper/*Mapper.xml
+  #配置MyBatis数据返回类名
+  type-aliases-package: com.kong.seckill1.pojo
+
+logging:
+  level:
+    com.kong.seckill.mapper: debug
+

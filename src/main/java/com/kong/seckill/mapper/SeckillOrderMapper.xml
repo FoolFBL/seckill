@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kong.seckill.mapper.SeckillOrderMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, order_id, goods_id
+    </sql>
+
+    <select id="selectOrderByUserId" resultType="com.kong.seckill.pojo.SeckillOrder">
+        select *
+        from seckill.t_seckill_order
+        where user_id = #{userId};
+    </select>
+
+    <insert id="insSeckillOrder" parameterType="com.kong.seckill.pojo.SeckillOrder">
+        insert into seckill.t_seckill_order(user_id, order_id, goods_id)
+        values (#{userId},#{orderId},#{goodsId});
+    </insert>
+
+</mapper>

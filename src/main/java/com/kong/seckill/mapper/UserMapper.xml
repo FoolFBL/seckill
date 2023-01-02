@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kong.seckill.mapper.UserMapper">
+
+    <select id="selectUserById" resultType="com.kong.seckill.pojo.User">
+        select *
+        from seckill.t_user
+        where id=#{id};
+    </select>
+
+    <select id="selectAll" resultType="com.kong.seckill.pojo.User">
+        select *
+        from seckill.t_user;
+    </select>
+
+    <insert id="insertUser" parameterType="com.kong.seckill.pojo.User">
+        insert into seckill.t_user(login_count, id, nickname, salt, password, head, register_date, last_login_date)
+        values (#{loginCount},#{id},#{nickname},#{salt},#{password},#{head},#{registerDate},#{lastLoginDate});
+    </insert>
+
+</mapper>
